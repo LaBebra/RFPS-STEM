@@ -1,0 +1,22 @@
+flowchart TB
+    subgraph UI["Представлення (React)"]
+        direction LR
+        P1[LoginPage] ~~~ P2[DashboardPage<br/>+ Recharts] ~~~ P3[SuitesPage<br/>SuiteDetailPage] ~~~ P4[RunsPage<br/>RunDetailPage] ~~~ P5[SettingsPage] ~~~ C1[Layout, Modal,<br/>RunControl, CodeEditor]
+    end
+    subgraph ST["Стан (Zustand)"]
+        direction LR
+        S1[useAuthStore<br/>сесія, роль] ~~~ S2[useAppStore<br/>набори, кейси,<br/>прогони, налаштування] ~~~ S3[runActions<br/>launchRun / cancelRun] ~~~ S4[useToastStore<br/>сповіщення]
+    end
+    subgraph LIB["Логіка (модулі TypeScript)"]
+        direction LR
+        L1[auth.ts<br/>SHA-256, RBAC,<br/>блокування] ~~~ L2[runner.ts<br/>пул виконавців,<br/>тайм-аут] ~~~ L3[stats.ts<br/>метрики, фільтри] ~~~ L4[export.ts<br/>HTML / CSV / JSON] ~~~ L5[validate.ts<br/>форми, імпорт]
+    end
+    W[["Web Worker (окремий потік)<br/>executor.ts + expect.ts"]]
+    LS[(localStorage /<br/>sessionStorage)]
+    API[(REST API бекенду<br/>наступний етап)]
+    UI --> ST
+    ST --> LIB
+    LIB -- "runner.ts: postMessage + nonce" --> W
+    W -- "результат тесту" --> LIB
+    ST <--> LS
+    ST -.-> API

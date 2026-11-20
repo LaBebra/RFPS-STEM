@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>body{margin:0;background:#fff;font-family:'Segoe UI',Arial,sans-serif}#out{display:inline-block;padding:16px}</style>
+</head><body><div id="out"></div>
+<script src="MERMAID"></script>
+<script>
+window.renderDiagram = async (code, width, fontSize) => {
+  mermaid.initialize({ startOnLoad:false, theme:'neutral', fontFamily:'Segoe UI, Arial, sans-serif',
+    flowchart:{ htmlLabels:true, curve:'basis', nodeSpacing:24, rankSpacing:26, padding:10 }, state:{ }, themeVariables:{ fontSize:(fontSize||15)+'px' } });
+  const { svg } = await mermaid.render('d' + Date.now(), code);
+  const out = document.getElementById('out');
+  out.innerHTML = svg;
+  const el = out.querySelector('svg');
+  if (width) { el.style.maxWidth = width + 'px'; el.style.width = width + 'px'; el.removeAttribute('height'); }
+  else { const vb = el.viewBox.baseVal; el.style.maxWidth = 'none'; el.style.width = vb.width + 'px'; el.removeAttribute('height'); }
+  return true;
+};
+</script></body></html>

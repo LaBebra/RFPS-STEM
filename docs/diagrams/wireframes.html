@@ -1,0 +1,127 @@
+<!doctype html><html lang="uk"><head><meta charset="utf-8">
+<title>Каркаси екранів AutoQA Lab</title>
+<style>
+*{box-sizing:border-box} body{margin:0;background:#fff;font-family:'Segoe UI',Arial,sans-serif;color:#222}
+.frame{display:inline-block;border:2px solid #333;border-radius:6px;background:#fff;position:relative;margin:16px;vertical-align:top}
+.box{border:1.5px solid #555;border-radius:4px;background:#f2f2f2;display:flex;align-items:center;justify-content:center;font-size:13px;color:#333;text-align:center;padding:4px}
+.box.w{background:#fff}.box.d{background:#d9d9d9}.box.dash{border-style:dashed;background:#fff}
+.n{position:absolute;width:24px;height:24px;border-radius:50%;background:#111;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:5}
+.row{display:flex;gap:10px}.col{display:flex;flex-direction:column;gap:10px}
+.x{position:relative;overflow:hidden}
+.x::before,.x::after{content:'';position:absolute;left:0;top:50%;width:100%;border-top:1px solid #aaa}
+.x::before{transform:rotate(12deg)}.x::after{transform:rotate(-12deg)}
+.lbl{position:relative;z-index:1;background:#fff;padding:0 4px}
+.tr{display:flex;height:50px;padding:6px 10px;border-top:1px solid #999;align-items:center;font-size:12px}
+</style></head><body>
+
+<!-- Каркас 1: вхід -->
+<div class="frame" id="wf-login" style="width:520px;height:450px;padding:24px 90px">
+  <div class="col" style="border:1.5px solid #555;border-radius:6px;padding:18px;height:100%">
+    <div class="box d" style="height:34px;width:160px">Логотип AutoQA Lab</div>
+    <div class="box w" style="height:26px;justify-content:flex-start">Заголовок «Вхід до системи»</div>
+    <div class="box w" style="height:22px;font-size:11px;justify-content:flex-start">Логін</div>
+    <div class="box" style="height:34px;justify-content:flex-start">[ поле введення ]</div>
+    <div class="box w" style="height:22px;font-size:11px;justify-content:flex-start">Пароль</div>
+    <div class="row"><div class="box" style="height:34px;flex:1;justify-content:flex-start">[ •••••••• ]</div><div class="box d" style="width:44px;height:34px">👁</div></div>
+    <div class="box d" style="height:40px;font-weight:700">Увійти</div>
+    <div class="box dash" style="height:30px">▸ Демонстраційні облікові записи</div>
+  </div>
+  <div class="n" style="left:60px;top:44px">1</div>
+  <div class="n" style="left:60px;top:162px">2</div>
+  <div class="n" style="left:430px;top:226px">3</div>
+  <div class="n" style="left:60px;top:330px">4</div>
+  <div class="n" style="left:60px;top:378px">5</div>
+</div>
+
+<!-- Каркас 2: дашборд (десктоп) -->
+<div class="frame" id="wf-dashboard" style="width:980px;height:600px">
+  <div class="row" style="height:100%;gap:0">
+    <div class="col" style="width:180px;border-right:1.5px solid #555;padding:12px;gap:8px;height:100%">
+      <div class="box d" style="height:32px">Логотип</div>
+      <div class="box d" style="height:30px">Дашборд</div>
+      <div class="box w" style="height:30px">Тестові набори</div>
+      <div class="box w" style="height:30px">Журнал прогонів</div>
+      <div class="box w" style="height:30px">Налаштування</div>
+      <div style="flex:1"></div>
+      <div class="box" style="height:44px">Користувач, роль</div>
+      <div class="box w" style="height:30px">Вийти</div>
+    </div>
+    <div class="col" style="flex:1;gap:0">
+      <div class="row" style="height:46px;border-bottom:1.5px solid #555;padding:7px 12px;justify-content:flex-end"><div class="box w" style="width:160px">Активні прогони: N</div><div class="box w" style="width:40px">☾</div></div>
+      <div class="col" style="padding:12px;gap:10px;flex:1">
+        <div class="row" style="justify-content:space-between"><div class="box w" style="width:360px;height:44px;justify-content:flex-start">Заголовок сторінки + підзаголовок</div><div class="box d" style="width:190px;height:38px;font-weight:700">▶ Запустити всі тести</div></div>
+        <div class="row"><div class="box" style="width:230px;height:32px">7 днів | 30 днів | Увесь час</div><div class="box" style="width:200px;height:32px">Набір ▾</div></div>
+        <div class="row">
+          <div class="box w" style="flex:1;height:62px">KPI: тест-кейси</div><div class="box w" style="flex:1;height:62px">KPI: прогони</div><div class="box w" style="flex:1;height:62px">KPI: успішність</div><div class="box w" style="flex:1;height:62px">KPI: сер. успішність</div><div class="box w" style="flex:1;height:62px">KPI: тривалість</div>
+        </div>
+        <div class="row" style="flex:1">
+          <div class="box w x" style="flex:2"><span class="lbl">Графік динаміки успішності</span></div>
+          <div class="box w x" style="flex:1"><span class="lbl">Кільцева діаграма</span></div>
+        </div>
+        <div class="row" style="height:110px">
+          <div class="box w x" style="flex:2"><span class="lbl">Стовпчикова діаграма статусів</span></div>
+          <div class="box w" style="flex:1">Рейтинг проблемних тест-кейсів</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="n" style="left:150px;top:94px">1</div>
+  <div class="n" style="left:722px;top:12px">2</div>
+  <div class="n" style="left:744px;top:66px">3</div>
+  <div class="n" style="left:612px;top:112px">4</div>
+  <div class="n" style="left:930px;top:156px">5</div>
+  <div class="n" style="left:610px;top:290px">6</div>
+  <div class="n" style="left:610px;top:520px">7</div>
+  <div class="n" style="left:150px;top:500px">8</div>
+</div>
+
+<!-- Каркас 3: сторінка набору -->
+<div class="frame" id="wf-suite" style="width:980px;height:470px">
+  <div class="row" style="height:100%;gap:0">
+    <div class="box d" style="width:180px;height:100%;border-radius:0;border-width:0 1.5px 0 0">Бічне меню</div>
+    <div class="col" style="flex:1;padding:14px;gap:10px">
+      <div class="box w" style="width:150px;height:22px;font-size:11px">‹ Тестові набори</div>
+      <div class="row" style="justify-content:space-between"><div class="box w" style="width:360px;height:44px;justify-content:flex-start">Назва набору + опис</div><div class="row"><div class="box w" style="width:160px;height:36px">✎ Налаштувати набір</div><div class="box d" style="width:160px;height:36px;font-weight:700">▶ Запустити набір</div></div></div>
+      <div class="row"><div class="box" style="width:240px;height:32px;justify-content:flex-start">🔍 Пошук тест-кейсів</div><div class="box" style="width:120px;height:32px">Пріоритет ▾</div><div class="box" style="width:170px;height:32px">Останній результат ▾</div><div style="flex:1"></div><div class="box w" style="width:120px;height:32px">+ Тест-кейс</div></div>
+      <div class="col" style="border:1.5px solid #555;border-radius:4px;gap:0;flex:1">
+        <div class="tr" style="height:32px;background:#d9d9d9;border-top:none"><span style="width:30px">☐</span><span style="flex:1">Тест-кейс</span><span style="width:100px">Пріоритет</span><span style="width:150px">Останній результат</span><span style="width:80px">Активний</span><span style="width:110px">Дії</span></div>
+        <div class="tr"><span style="width:30px">☐</span><span style="flex:1">Назва, опис, теги</span><span style="width:100px">■ Високий</span><span style="width:150px">[✓ Пройдено]</span><span style="width:80px">(●━)</span><span style="width:110px">▶ ⧉ 🗑</span></div>
+        <div class="tr"><span style="width:30px">☐</span><span style="flex:1">Назва, опис, теги</span><span style="width:100px">■ Критичний</span><span style="width:150px">[✗ Провалено]</span><span style="width:80px">(●━)</span><span style="width:110px">▶ ⧉ 🗑</span></div>
+        <div class="tr"><span style="width:30px">☐</span><span style="flex:1">...</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="n" style="left:530px;top:58px">1</div>
+  <div class="n" style="left:946px;top:42px">2</div>
+  <div class="n" style="left:186px;top:112px">3</div>
+  <div class="n" style="left:946px;top:112px">4</div>
+  <div class="n" style="left:186px;top:166px">5</div>
+  <div class="n" style="left:946px;top:228px">6</div>
+</div>
+
+<!-- Каркас 4: мобільна версія -->
+<div class="frame" id="wf-mobile" style="width:620px;height:520px;padding:18px 30px;border:none">
+  <div class="row" style="gap:50px">
+    <div class="col" style="width:250px;height:480px;border:2px solid #333;border-radius:18px;padding:10px;gap:8px">
+      <div class="row" style="height:34px;align-items:center;gap:6px"><div class="box d" style="width:34px;height:30px">☰</div><div class="box w" style="flex:1;height:30px">AutoQA Lab</div><div class="box w" style="width:34px;height:30px">☾</div></div>
+      <div class="box w" style="height:40px">Заголовок</div>
+      <div class="box d" style="height:34px">▶ Запустити</div>
+      <div class="box" style="height:30px">Фільтри (у стовпчик)</div>
+      <div class="row"><div class="box w" style="flex:1;height:52px">KPI</div><div class="box w" style="flex:1;height:52px">KPI</div></div>
+      <div class="box w x" style="height:100px"><span class="lbl">Графік</span></div>
+      <div class="col" style="border:1.5px solid #555;border-radius:4px;padding:6px;gap:4px;flex:1;font-size:11px"><b>Таблиця → картки</b><div class="row" style="justify-content:space-between"><span>Статус</span><span>✓ Пройдено</span></div><div class="row" style="justify-content:space-between"><span>Тривалість</span><span>1,2 с</span></div></div>
+    </div>
+    <div style="width:250px;height:480px;border:2px solid #333;border-radius:18px;overflow:hidden;position:relative">
+      <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,#ddd 0 6px,#f6f6f6 6px 12px)"></div>
+      <div class="col" style="position:absolute;left:0;top:0;bottom:0;width:170px;background:#fff;border-right:1.5px solid #555;padding:10px;gap:8px">
+        <div class="box d" style="height:30px">Логотип</div><div class="box d" style="height:28px">Дашборд</div><div class="box w" style="height:28px">Тестові набори</div><div class="box w" style="height:28px">Журнал</div><div class="box w" style="height:28px">Налаштування</div><div style="flex:1"></div><div class="box w" style="height:28px">Вийти</div>
+      </div>
+      <div style="position:absolute;right:4px;top:46%;font-size:11px;width:72px;text-align:center;background:#fff;border:1px solid #999;border-radius:4px;padding:2px">Затемнення фону</div>
+    </div>
+  </div>
+  <div class="n" style="left:4px;top:30px">1</div>
+  <div class="n" style="left:4px;top:290px">2</div>
+  <div class="n" style="left:4px;top:430px">3</div>
+  <div class="n" style="left:318px;top:30px">4</div>
+</div>
+</body></html>

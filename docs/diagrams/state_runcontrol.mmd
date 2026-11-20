@@ -1,0 +1,17 @@
+stateDiagram-v2
+    [*] --> Disabled : немає права run<br/>або тест-кейсів
+    [*] --> Idle : є право і тест-кейси
+    Disabled --> Idle : зʼявились тест-кейси
+    Idle --> Disabled : тест-кейси вимкнено
+    Idle --> Running : клік «Запустити» / launchRun()
+    Running --> Cancelling : клік «Зупинити» / cancelRun()
+    state "Показ результату (4 с)" as Result {
+        Passed
+        Failed
+        Cancelled
+    }
+    Running --> Passed : усі тести пройдено
+    Running --> Failed : є failed, error або timeout
+    Cancelling --> Cancelled : воркери зупинено
+    Result --> Idle : минуло 4 с
+    Result --> Running : повторний клік

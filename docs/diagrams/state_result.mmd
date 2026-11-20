@@ -1,0 +1,17 @@
+stateDiagram-v2
+    direction LR
+    [*] --> Queued : прогін створено
+    Queued --> Skipped : тест-кейс вимкнено<br/>або зупинка після невдачі
+    Queued --> Running : вільний воркер
+    Queued --> Cancelled : прогін скасовано
+    Running --> Passed : усі expect() виконано
+    Running --> Failed : AssertionError
+    Running --> Error : виняток / синтаксична помилка
+    Running --> Timeout : перевищено тайм-аут<br/>/ worker.terminate()
+    Running --> Cancelled : прогін скасовано
+    Passed --> [*]
+    Failed --> [*]
+    Error --> [*]
+    Timeout --> [*]
+    Skipped --> [*]
+    Cancelled --> [*]
