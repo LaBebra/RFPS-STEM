@@ -19,6 +19,7 @@ SHOTS = os.path.join(ROOT, 'screenshots')
 DIAG = os.path.join(SHOTS, 'diagrams')
 OUT = os.path.join(ROOT, 'Пояснювальна_записка_STEM_Марчук_ІПЗ-33.docx')
 GIT_URL = 'https://github.com/LaBebra/RFPS-STEM'
+PAGES_URL = 'https://labebra.github.io/RFPS-STEM/'
 
 FONT = 'Times New Roman'
 BLACK = RGBColor(0, 0, 0)
@@ -791,6 +792,8 @@ para('Демонстраційні дані містять навмисні де
 h2('2.8 Програмний код у Git')
 para('Вихідний код проєкту (застосунок, тести, діаграми, генератор документації) зберігається в окремому публічному репозиторії GitHub:')
 p = para(GIT_URL, indent=False, align=WD_ALIGN_PARAGRAPH.CENTER)
+para('Робочу версію застосунку опубліковано на GitHub Pages; після кожного оновлення коду GitHub Actions автоматично запускає модульні тести, збирає проєкт і оновлює сайт:')
+para(PAGES_URL, indent=False, align=WD_ALIGN_PARAGRAPH.CENTER)
 para('Для запуску достатньо встановити Node.js 20 або новіший і виконати команди `npm install`, `npm run dev` (режим розробки) або `npm run build` і `npm run preview` (production-збірка). Команди `npm test`, `npm run coverage` і `npm run e2e` запускають автоматизовані тести. Детальні інструкції наведено у файлі README.md каталогу застосунку.')
 
 # ================================================================== РОЗДІЛ 3
